@@ -1,50 +1,53 @@
 <template>
-  <div class="home">
-    <h1>Random Cocktails</h1>
-    <button @click="getCocktails">Refresh Cocktails</button>
-    <div class="cocktails-grid">
-      <CocktailCard v-for="cocktail in cocktails" :key="cocktail.idDrink" :cocktail="cocktail" />
-    </div>
+  <div class="app">
+    <CocktailList :cocktails="cocktails" @select-cocktail="selectCocktail" />
+    <CocktailModal
+      v-if="selectedCocktail"
+      :cocktail="selectedCocktail"
+      :visible="!!selectedCocktail"
+      @close="selectedCocktail = null"
+    />
   </div>
 </template>
 
 <script>
-import { ref, onMounted  } from 'vue';
+import { ref } from 'vue';
+import CocktailList from '@/components/CocktailList.vue';
+import CocktailModal from '@/components/CocktailModal.vue';
 import useCocktailAPI from '@/composables/CocktailAPI';
-import CocktailCard from '@/components/CocktailCard.vue';
 
 export default {
   components: {
-    CocktailCard
+    CocktailList,
+    CocktailModal
   },
   setup() {
     const cocktails = ref([]);
+    const selectedCocktail = ref(null);
     const { fetchRandomCocktails } = useCocktailAPI();
 
     const init = async () => {
-      await getCocktails();
-    };
-
-    const getCocktails = async () => {
       cocktails.value = await fetchRandomCocktails();
     };
 
-    onMounted(init);
+    const selectCocktail = (cocktail) => {
+      selectedCocktail.value = cocktail;
+    };
 
-    return { cocktails, getCocktails };
+    init();
+
+    return { cocktails, selectedCocktail, selectCocktail };
   }
 };
 </script>
 
 <style scoped>
-.home {
-  text-align: center;
-}
-.cocktails-grid {
+.app {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  background-color: #efcad4; /* Apply the background color here */
 }
+
+
 </style>
-@/composables/CocktailAPI
