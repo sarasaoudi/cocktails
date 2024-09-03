@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home">
+    <h1>Random Cocktails</h1>
+    <button @click="getCocktails">Refresh Cocktails</button>
+    <div class="cocktails-grid">
+      <CocktailCard v-for="cocktail in cocktails" :key="cocktail.idDrink" :cocktail="cocktail" />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, onMounted  } from 'vue';
+import useCocktailAPI from '@/composables/CocktailAPI';
+import CocktailCard from '@/components/CocktailCard.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    CocktailCard
+  },
+  setup() {
+    const cocktails = ref([]);
+    const { fetchRandomCocktails } = useCocktailAPI();
+
+    const init = async () => {
+      await getCocktails();
+    };
+
+    const getCocktails = async () => {
+      cocktails.value = await fetchRandomCocktails();
+    };
+
+    onMounted(init);
+
+    return { cocktails, getCocktails };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style scoped>
+.home {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.cocktails-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 </style>
+@/composables/CocktailAPI
