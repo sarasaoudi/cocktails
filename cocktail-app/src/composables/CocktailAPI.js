@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// get the api url from the environment variables
-const API_URL = process.env.VUE_APP_ROOT_API;
+const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 export default function useCocktailAPI() {
   const fetchRandomCocktails = async (numb = 3) => {
