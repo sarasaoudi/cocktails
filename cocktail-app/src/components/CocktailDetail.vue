@@ -1,6 +1,5 @@
 <template>
   <div class="cocktail-detail">
-    <button class="close-button" @click="$emit('close')">&times;</button>
     <img :src="cocktail.strDrinkThumb" :alt="cocktail.strDrink" class="cocktail-image" />
     <h2>{{ cocktail.strDrink }}</h2>
     <p>{{ cocktail.strInstructions }}</p>
@@ -55,11 +54,11 @@ export default {
 <style scoped>
 .cocktail-detail {
   position: relative;
-  width: 100%;
-  max-width: 500px;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
   text-align: center;
   background: #FAF3F3;
-  padding: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -127,34 +126,7 @@ p {
   color: rgb(124, 120, 120);
 }
 
-/* Close Button Styling */
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #ff6b6b;
-  color: white;
-  font-size: 24px;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.close-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-.close-button:focus {
-  outline: none;
-}
 
 @media (max-width: 768px) {
   .cocktail-detail {

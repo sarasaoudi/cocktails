@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    height: 100vh;
+    height: 90vh;
   }
   
   .app-title{
@@ -79,13 +79,13 @@
     flex: 0 0 150px; /* Adjusted size */
     margin: 0 10px;
     opacity: 0.7;
-    height: auto;
+    height: 70%;
     transform: scale(0.8);
     transition: transform 0.5s, opacity 0.5s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #D5B3B3;
+    background-color: #e2a6a6;
     border-radius: 25px;
   }
   
