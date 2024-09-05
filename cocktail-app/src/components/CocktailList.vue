@@ -151,7 +151,7 @@ export default {
   font-size: 17px;
   font-style: fantasy;
   font-weight: bold;
-  color: #9e7070;
+  color: #793e3e;
 }
 
 
@@ -190,10 +190,23 @@ export default {
 .ingredient-item p {
   margin: 0;
   font-size: 16px;
-  color: #9e7070;
+  color: #793e3e;
   font-style: fantasy;
   font-weight: bold;
   text-align: left;
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  .carousel-item.active {
+    transform: none;
+    opacity: 1;
+  }
 }
 </style>
