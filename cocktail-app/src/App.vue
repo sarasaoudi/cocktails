@@ -19,7 +19,7 @@ import LoadingSpinner from '@/components/LoadingSpinner.vue';
 
 export default {
   mounted() {
-    document.body.style.backgroundColor = '#efcad4';
+    document.body.style.backgroundColor = '#f5d8e0';
   },
   components: {
     CocktailList,
@@ -56,7 +56,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #efcad4;
+  background-color: #f5d8e0;
   overflow: hidden;
 }
 

@@ -14,7 +14,7 @@
         <p class="cocktail-title">{{ cocktail.strDrink }}</p>
         <div class="cocktail-detail">
 
-          <p><strong>Instructions:</strong> {{ cocktail.strInstructions }}</p>
+          <p> {{ cocktail.strInstructions }}</p>
           <div v-if="getIngredients(cocktail).length" class="ingredients">
 
             <h4>Ingredients: </h4>
@@ -140,55 +140,60 @@ export default {
   font-size: 24px;
   font-style: fantasy;
   font-weight: bold;
-  color: rgb(24, 1, 1);
+  color: #020202;
   border-bottom: 2px solid black;
   padding-bottom: 5px;
 }
 
 .cocktail-detail {
-  text-align: center;
+  text-align: left;
   margin-top: 15px;
-  font-size: 16px;
+  font-size: 17px;
   font-style: fantasy;
   font-weight: bold;
-  color: #302e2e;
+  color: #9e7070;
 }
+
 
 .cocktail-detail h4 {
   margin-top: 10px;
-  font-size: 18px;
-  color: #0a0a0a;
+  font-size: 22px;
+  color: #080808;
   font-style: fantasy;
   font-weight: bold;
+  text-align: left;
 }
 
 .ingredient-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0;
   list-style: none;
 }
 
 .ingredient-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin: 10px;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
-
 .ingredient-image {
   width: 50px;
   height: 50px;
-  margin-bottom: 5px;
+  margin-right: 10px;
 }
+
 
 .ingredient-item p {
   margin: 0;
-  font-size: 14px;
-  color: rgb(51, 50, 50);
+  font-size: 16px;
+  color: #9e7070;
   font-style: fantasy;
   font-weight: bold;
+  text-align: left;
+  flex: 1;
 }
 </style>
