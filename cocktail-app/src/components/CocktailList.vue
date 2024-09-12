@@ -33,6 +33,8 @@
 </template>
 
 <script>
+const MAX_INGREDIENTS = 15;
+
 export default {
   props: {
     cocktails: {
@@ -56,7 +58,7 @@ export default {
 
     getIngredients(cocktail) {
       const ingredients = [];
-      for (let i = 1; i <= 15; i++) {
+      for (let i = 1; i <= MAX_INGREDIENTS; i++) {
         const ingredient = cocktail[`strIngredient${i}`];
         const measure = cocktail[`strMeasure${i}`];
 

@@ -26,7 +26,7 @@ Suivez ces étapes pour faire fonctionner l’application en local :
 1. **Cloner le Répertoire :**
 
    ```bash
-   git clone https://github.com/your-repo/cocktail-app.git
+   git clone https://github.com/sarasaoudi/cocktails.git
    cd cocktail-app
 2. **Installer les Dépendances :**
     Assurez-vous d'avoir Node.js installé. Ensuite, exécutez :
@@ -49,7 +49,7 @@ L'image Docker pour cette application est disponible sur Docker Hub. Vous pouvez
 2. **Exécuter l'image :** :
 
    ```bash
-   docker run -d -p 80:80 votre_nom_utilisateur/cocktail-app:latest
+   docker run -d -p 80:80 jaenpay/cocktail-app:latest
 ## Déploiement
 Cette application est actuellement déployée et disponible en ligne. Vous pouvez y accéder ici :
 
